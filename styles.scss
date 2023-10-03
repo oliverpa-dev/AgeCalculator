@@ -1,5 +1,9 @@
 // Root styles
 
+// Widths
+$mobile-width: 375px;
+$desktop-width: 1440px;
+
 // Colors
 $primary-purple: hsl(259, 100%, 65%);
 $primary-red: hsl(0, 100%, 67%);
@@ -41,4 +45,42 @@ body {
   font-family: $font;
   height: 100vh;
   justify-content: center;
+}
+
+.container {
+  background-color: $neutral-white;
+  display: flex;
+  flex-direction: column;
+
+  &__input {
+    display: flex;
+    gap: 5rem;
+
+    &-element {
+      display: flex;
+      gap: 1rem;
+      flex-direction: column;
+      max-width: 20rem;
+
+      label {
+        color: $neutral-off-black;
+        font-size: $primary-size / 2;
+        font-weight: $bold;
+        text-transform: uppercase;
+      }
+
+      input {
+        border-radius: 1rem;
+        border: 1px $neutral-off-black solid;
+        font-family: $font;
+        font-size: $primary-size;
+        font-weight: $bold;
+        padding: 2rem;
+      }
+
+      span {
+        font-size: $primary-size / 2;
+      }
+    }
+  }
 }
