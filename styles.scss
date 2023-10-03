@@ -48,14 +48,17 @@ body {
 }
 
 .container {
+  border-radius: 3rem;
+  border-bottom-right-radius: 25%;
   background-color: $neutral-white;
   display: flex;
   flex-direction: column;
+  min-width: 1100px;
+  padding: 8rem;
 
   &__input {
     display: flex;
     gap: 5rem;
-
     &-element {
       display: flex;
       gap: 1rem;
@@ -76,10 +79,13 @@ body {
         font-family: $font;
         font-size: $primary-size;
         font-weight: $bold;
+        outline-color: $neutral-off-black;
         padding: 2rem;
       }
 
       span {
+        display: none;
+        color: $primary-red;
         font-size: calc($primary-size / 2);
         font-weight: $regular-italic;
         font-style: italic;
@@ -87,15 +93,20 @@ body {
     }
   }
 
+  .show {
+    display: inline;
+  }
+
   &__button {
     display: flex;
     align-items: flex-end;
     position: relative;
     justify-content: flex-end;
+    margin-top: 3rem;
 
     span {
       border-bottom: 2px $neutral-light-grey solid;
-      width: calc(70rem - 9.6rem);
+      width: calc(94rem - 9.6rem);
       position: absolute;
       top: 50%;
       left: 0;
@@ -111,6 +122,24 @@ body {
       border-radius: 50%;
       cursor: pointer;
       padding: 2.5rem;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    img:hover {
+      background-color: $neutral-off-black;
+    }
+  }
+
+  &__output-field {
+    p {
+      font-size: calc($primary-size * 4);
+      font-style: italic;
+      font-weight: $extra-bold-italic;
+      color: $neutral-off-black;
+    }
+
+    span {
+      color: $primary-purple;
     }
   }
 }
