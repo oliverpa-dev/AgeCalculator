@@ -39,6 +39,7 @@ body {
   font-size: 1.6rem;
   font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 0.5rem;
 }
 .container__input-element input {
   border-radius: 1rem;
@@ -50,6 +51,8 @@ body {
 }
 .container__input-element span {
   font-size: 1.6rem;
+  font-weight: 400;
+  font-style: italic;
 }
 
 /*# sourceMappingURL=styles.css.map */

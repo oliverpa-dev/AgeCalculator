@@ -21,9 +21,9 @@ $font: "Poppins", sans-serif;
 $primary-size: 3.2rem;
 
 // Font weights
-$regular-italic: 400i;
+$regular-italic: 400;
 $bold: 700;
-$extra-bold-italic: 800i;
+$extra-bold-italic: 800;
 
 //Global reset
 *,
@@ -64,9 +64,10 @@ body {
 
       label {
         color: $neutral-off-black;
-        font-size: $primary-size / 2;
+        font-size: calc($primary-size / 2);
         font-weight: $bold;
         text-transform: uppercase;
+        letter-spacing: 0.5rem;
       }
 
       input {
@@ -79,7 +80,9 @@ body {
       }
 
       span {
-        font-size: $primary-size / 2;
+        font-size: calc($primary-size / 2);
+        font-weight: $regular-italic;
+        font-style: italic;
       }
     }
   }
