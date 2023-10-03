@@ -27,29 +27,32 @@
       <div class="container__input">
         <div class="container__input-element">
           <label>Day</label>
-          <input placeholder="Day" type="text" />
+          <input id="input-day" placeholder="Day" type="text" />
           <span>Must be a valid day</span>
         </div>
         <div class="container__input-element">
           <label>Month</label>
-          <input placeholder="Month" type="text" />
+          <input id="input-month" placeholder="Month" type="text" />
           <span>Must be a valid month</span>
         </div>
         <div class="container__input-element">
           <label>Year</label>
-          <input placeholder="Year" type="text" />
+          <input id="input-year" placeholder="Year" type="text" />
           <span>Must be a valid year</span>
         </div>
       </div>
       <div class="container__button">
         <span></span>
-        <button><img src="./assets/images/icon-arrow.svg" alt="" /></button>
+        <button id="btn-calc">
+          <img src="./assets/images/icon-arrow.svg" alt="" />
+        </button>
       </div>
       <div class="container__output-field">
-        <p><span>--</span> years</p>
-        <p><span>--</span> months</p>
-        <p><span>--</span> days</p>
+        <p><span id="output-day">--</span> years</p>
+        <p><span id="output-month">--</span> months</p>
+        <p><span id="output-year">--</span> days</p>
       </div>
     </div>
+    <script src="./app.js"></script>
   </body>
 </html>
