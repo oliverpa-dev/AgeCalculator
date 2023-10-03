@@ -20,3 +20,25 @@ $primary-size: 3.2rem;
 $regular-italic: 400i;
 $bold: 700;
 $extra-bold-italic: 800i;
+
+//Global reset
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  align-items: center;
+  background-color: $neutral-off-white;
+  display: flex;
+  font-family: $font;
+  height: 100vh;
+  justify-content: center;
+}
