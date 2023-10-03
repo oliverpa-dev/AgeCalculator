@@ -86,4 +86,31 @@ body {
       }
     }
   }
+
+  &__button {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    justify-content: flex-end;
+
+    span {
+      border-bottom: 2px $neutral-light-grey solid;
+      width: calc(70rem - 9.6rem);
+      position: absolute;
+      top: 50%;
+      left: 0;
+    }
+
+    button {
+      background-color: $neutral-white;
+      border: none;
+    }
+
+    img {
+      background-color: $primary-purple;
+      border-radius: 50%;
+      cursor: pointer;
+      padding: 2.5rem;
+    }
+  }
 }

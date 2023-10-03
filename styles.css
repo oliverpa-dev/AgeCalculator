@@ -54,5 +54,28 @@ body {
   font-weight: 400;
   font-style: italic;
 }
+.container__button {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  justify-content: flex-end;
+}
+.container__button span {
+  border-bottom: 2px hsl(0, 0%, 86%) solid;
+  width: 60.4rem;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+.container__button button {
+  background-color: hsl(0, 0%, 100%);
+  border: none;
+}
+.container__button img {
+  background-color: hsl(259, 100%, 65%);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 2.5rem;
+}
 
 /*# sourceMappingURL=styles.css.map */
