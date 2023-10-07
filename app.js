@@ -1,21 +1,20 @@
 "use strict";
 
-// Input elements
+// Inputs
 const dayInput = document.getElementById("input-day");
 const monthInput = document.getElementById("input-month");
 const yearInput = document.getElementById("input-year");
 
-// Button
+// Labels
+const dayLabels = document.getElementById("error");
+
+// Buttons
 const calcBtn = document.getElementById("btn-calc");
 
-// Output elements
+// Outputs
 let dayOutput = document.getElementById("output-days");
 let monthOutput = document.getElementById("output-month");
 let yearOutput = document.getElementById("output-years");
-
-// Check first if it is not empty
-// Then check if the value is a type of number
-// Then console log it
 
 const inputCheck = (dayVal, monthVal, yearVal) => {
   if (dayVal.value !== "" && monthVal.value !== "" && yearVal.value !== "") {
@@ -24,7 +23,8 @@ const inputCheck = (dayVal, monthVal, yearVal) => {
     let year = parseInt(yearVal.value);
     return { day, month, year };
   } else {
-    console.log("It is empty");
+    // If it's empty
+    // Display error states
   }
 };
 
@@ -44,9 +44,3 @@ calcBtn.addEventListener("click", () => {
     }
   }
 });
-
-let test = new Date();
-let test2 = new Date();
-
-console.log(test2.getDay());
-console.log(test.getMonth());

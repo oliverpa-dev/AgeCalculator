@@ -59,11 +59,13 @@ body {
   &__input {
     display: flex;
     gap: 5rem;
+
     &-element {
       display: flex;
       gap: 1rem;
       flex-direction: column;
       max-width: 20rem;
+      position: relative;
 
       label {
         color: $neutral-off-black;
@@ -84,7 +86,9 @@ body {
       }
 
       span {
-        display: none;
+        position: absolute;
+        bottom: -4rem;
+        left: 0;
         color: $primary-red;
         font-size: calc($primary-size / 2);
         font-weight: $regular-italic;
@@ -93,8 +97,12 @@ body {
     }
   }
 
+  .error {
+    color: $primary-red;
+  }
+
   .show {
-    display: inline;
+    display: none;
   }
 
   &__button {

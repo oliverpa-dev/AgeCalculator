@@ -37,6 +37,7 @@ body {
   gap: 1rem;
   flex-direction: column;
   max-width: 20rem;
+  position: relative;
 }
 .container__input-element label {
   color: hsl(0, 0%, 8%);
@@ -55,14 +56,19 @@ body {
   padding: 2rem;
 }
 .container__input-element span {
-  display: none;
+  position: absolute;
+  bottom: -4rem;
+  left: 0;
   color: hsl(0, 100%, 67%);
   font-size: 1.6rem;
   font-weight: 400;
   font-style: italic;
 }
+.container .error {
+  color: hsl(0, 100%, 67%);
+}
 .container .show {
-  display: inline;
+  display: none;
 }
 .container__button {
   display: flex;
