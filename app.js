@@ -19,8 +19,6 @@ let dayOutput = document.getElementById("output-days");
 let monthOutput = document.getElementById("output-month");
 let yearOutput = document.getElementById("output-years");
 
-let test = inputCheck(dayInput, monthInput, yearInput, emptyErrMsg);
-
 // String constants - error messages
 const emptyErrMsg = "This field is required";
 const incorrectDayLogic = "Must be a valid day";
@@ -28,50 +26,60 @@ const incorrectMonthLogic = "Must be a valid month";
 const incorrectYearLogic = "Must be a valid year";
 
 // Dates variables
-let day = new Date().getDay();
-let month = new Date().getMonth();
 let year = new Date().getFullYear();
 
-// Input string elements changed into number elements
-let dayNumber = parseInt(dayInput.value);
-let monthNumber = parseInt(monthInput.value);
-let yearNumber = parseInt(yearInput.value);
+// When the input is empty
+const emptyInputText = (errMsg) => {
+  daySpan.innerHTML = `${errMsg}`;
+  monthSpan.innerHTML = `${errMsg}`;
+  yearSpan.innerHTML = `${errMsg}`;
+};
 
-const inputCheck = (dayVal, monthVal, yearVal) => {
-  if (dayVal.value !== "" && monthVal.value !== "" && yearVal.value !== "") {
-    return { day, month, year };
+// When the logic is correct;
+const checkLogic = (dayV, monthV, yearV) => {
+  if (
+    dayV <= 31 &&
+    monthV <= 12 &&
+    yearV <= year &&
+    typeof dayV === "number" &&
+    typeof monthV === "number" &&
+    typeof yearV === "number"
+  ) {
+    daySpan.innerHTML = "";
+    monthSpan.innerHTML = "";
+    yearSpan.innerHTML = "";
   } else {
-    // If it's empty
-    // Display error states
-    emptyInputText(emptyErrMsg);
+    if (dayV < 0 || dayV > 31) {
+      daySpan.innerHTML = "Must be a valid day";
+    } else {
+      daySpan.innerHTML = "";
+    }
+    if (monthV < 0 || monthV > 12) {
+      monthSpan.innerHTML = "Must be a valid month";
+    } else {
+      monthSpan.innerHTML = "";
+    }
+    if (yearV < 0 || dayV > 2023) {
+      yearSpan.innerHTML = "Must be a valid year";
+    } else {
+      yearSpan.innerHTML = "";
+    }
   }
 };
 
-// When the input is empty
-const emptyInputText = (emptyErrMsg) => {
-  daySpan.innerHTML = `${emptyErrMsg}`;
-  monthSpan.innerHTML = `${emptyErrMsg}`;
-  yearSpan.innerHTML = `${emptyErrMsg}`;
+const inputCheck = (day, month, year, msg) => {
+  if (isNaN(day) && isNaN(month) && isNaN(year)) {
+    emptyInputText(msg);
+  } else {
+    checkLogic(day, month, year);
+  }
 };
 
-// When the input is not empty but is not logical
-const logicInputText = (logicDay, logicMonth, logicYear) => {
-  if()
-}
-
 calcBtn.addEventListener("click", () => {
-  inputCheck(dayInput, monthInput, yearInput);
-  // let year = new Date();
-  // let day = new Date();
-  // let month = new Date();
-  // if (test.day <= 31 && test.month <= 12 && test.year <= year.getFullYear()) {
-  //   dayOutput.innerHTML = test.day - day.getDay();
-  //   if (test.month > month.getMonth()) {
-  //     monthOutput.innerHTML = test.month - month.getMonth();
-  //     yearOutput.innerHTML = year.getFullYear() - 1 - test.year;
-  //   } else {
-  //     yearOutput.innerHTML = year.getFullYear() - test.year;
-  //     monthOutput.innerHTML = month.getMonth() - test.month;
-  //   }
-  // }
+  // Input string elements changed into number elements
+  let dayVal = parseInt(dayInput.value);
+  let monthVal = parseInt(monthInput.value);
+  let yearVal = parseInt(yearInput.value);
+
+  inputCheck(dayVal, monthVal, yearVal, emptyErrMsg);
 });

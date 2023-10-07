@@ -67,9 +67,6 @@ body {
 .container .error {
   color: hsl(0, 100%, 67%);
 }
-.container .show {
-  display: none;
-}
 .container__button {
   display: flex;
   align-items: flex-end;
