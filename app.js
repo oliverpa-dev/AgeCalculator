@@ -6,7 +6,7 @@ const monthInput = document.getElementById("input-month");
 const yearInput = document.getElementById("input-year");
 
 // Labels element reference
-const dayLabels = document.getElementById("error"); // Needs only the styling
+const dayLabels = document.querySelectorAll("[id='error']"); // Needs only the styling
 const daySpan = document.getElementById("error-day"); // Needs a basic dom manipulation
 const monthSpan = document.getElementById("error-month"); // Needs a basic dom manipulation
 const yearSpan = document.getElementById("error-year"); // Needs a basic dom manipulation
@@ -33,6 +33,9 @@ const emptyInputText = (errMsg) => {
   daySpan.innerHTML = `${errMsg}`;
   monthSpan.innerHTML = `${errMsg}`;
   yearSpan.innerHTML = `${errMsg}`;
+  dayLabels.forEach((element) => {
+    element.classList.add("error");
+  });
 };
 
 // When the logic is correct;
@@ -48,21 +51,30 @@ const checkLogic = (dayV, monthV, yearV) => {
     daySpan.innerHTML = "";
     monthSpan.innerHTML = "";
     yearSpan.innerHTML = "";
+    dayLabels.forEach((element) => {
+      element.classList.remove("error");
+    });
   } else {
     if (dayV < 0 || dayV > 31) {
       daySpan.innerHTML = "Must be a valid day";
+      dayLabels[0].classList.add("error");
     } else {
       daySpan.innerHTML = "";
+      dayLabels[0].classList.remove("error");
     }
     if (monthV < 0 || monthV > 12) {
       monthSpan.innerHTML = "Must be a valid month";
+      dayLabels[1].classList.add("error");
     } else {
       monthSpan.innerHTML = "";
+      dayLabels[1].classList.remove("error");
     }
     if (yearV < 0 || dayV > 2023) {
       yearSpan.innerHTML = "Must be a valid year";
+      dayLabels[2].classList.add("error");
     } else {
       yearSpan.innerHTML = "";
+      dayLabels[2].classList.remove("error");
     }
   }
 };
