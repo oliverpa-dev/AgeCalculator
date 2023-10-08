@@ -29,7 +29,6 @@ const incorrectYearLogic = "Must be a valid year";
 let day = new Date().getDate();
 let month = new Date().getMonth();
 let year = new Date().getFullYear();
-console.log(day, month - 3, year);
 
 // When the input is empty
 const emptyInputText = (errMsg) => {
