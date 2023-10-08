@@ -25,18 +25,20 @@ body {
   background-color: hsl(0, 0%, 100%);
   display: flex;
   flex-direction: column;
-  min-width: 1000px;
+  width: 100%;
+  max-width: 1000px;
   padding: 8rem;
 }
 .container__input {
   display: flex;
   gap: 5rem;
+  width: 100%;
+  max-width: 625px;
 }
 .container__input-element {
   display: flex;
   gap: 1rem;
   flex-direction: column;
-  max-width: 18rem;
   position: relative;
 }
 .container__input-element label {
@@ -47,6 +49,9 @@ body {
   letter-spacing: 0.5rem;
 }
 .container__input-element input {
+  display: inline-block;
+  width: 100%;
+  resize: vertical;
   border-radius: 1rem;
   border: 1px hsl(0, 0%, 8%) solid;
   font-family: "Poppins", sans-serif;
@@ -72,11 +77,13 @@ body {
   align-items: flex-end;
   position: relative;
   justify-content: flex-end;
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 .container__button span {
+  z-index: 0;
   border-bottom: 2px hsl(0, 0%, 86%) solid;
-  width: 74.4rem;
+  width: 100%;
+  max-width: 74.4rem;
   position: absolute;
   top: 50%;
   left: 0;
@@ -84,6 +91,7 @@ body {
 .container__button button {
   background-color: hsl(0, 0%, 100%);
   border: none;
+  z-index: 1;
 }
 .container__button img {
   background-color: hsl(259, 100%, 65%);
@@ -103,6 +111,57 @@ body {
 }
 .container__output-field span {
   color: hsl(259, 100%, 65%);
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    gap: 2.5rem;
+  }
+  .container__input-element label {
+    font-size: 1.6rem;
+  }
+  .container__input-element span {
+    font-size: 1.6rem;
+  }
+  .container__input-element input {
+    font-size: 1.6rem;
+  }
+  .container__button {
+    align-items: center;
+    justify-content: center;
+  }
+  .container__button img {
+    width: 80%;
+  }
+  .container__output-field p {
+    font-size: 6.4rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  .container {
+    gap: 1rem;
+    padding: 2rem;
+  }
+  .container__input-element label {
+    font-size: 1.28rem;
+  }
+  .container__input-element span {
+    font-size: 1.28rem;
+  }
+  .container__input-element input {
+    font-size: 1.28rem;
+    padding: 1rem 0 1rem 1rem;
+  }
+  .container__button {
+    align-items: center;
+    justify-content: center;
+  }
+  .container__button img {
+    width: 75%;
+  }
+  .container__output-field p {
+    font-size: 3.2rem;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

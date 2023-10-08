@@ -53,18 +53,20 @@ body {
   background-color: $neutral-white;
   display: flex;
   flex-direction: column;
-  min-width: 1000px;
+  width: 100%;
+  max-width: 1000px;
   padding: 8rem;
 
   &__input {
     display: flex;
     gap: 5rem;
+    width: 100%;
+    max-width: 625px;
 
     &-element {
       display: flex;
       gap: 1rem;
       flex-direction: column;
-      max-width: 18rem;
       position: relative;
 
       label {
@@ -76,6 +78,9 @@ body {
       }
 
       input {
+        display: inline-block;
+        width: 100%;
+        resize: vertical;
         border-radius: 1rem;
         border: 1px $neutral-off-black solid;
         font-family: $font;
@@ -101,20 +106,18 @@ body {
     color: $primary-red;
   }
 
-  // .show {
-  //   display: none;
-  // }
-
   &__button {
     display: flex;
     align-items: flex-end;
     position: relative;
     justify-content: flex-end;
-    margin-top: 3rem;
+    margin-top: 4rem;
 
     span {
+      z-index: 0;
       border-bottom: 2px $neutral-light-grey solid;
-      width: calc(84rem - 9.6rem);
+      width: 100%;
+      max-width: calc(84rem - 9.6rem);
       position: absolute;
       top: 50%;
       left: 0;
@@ -123,6 +126,7 @@ body {
     button {
       background-color: $neutral-white;
       border: none;
+      z-index: 1;
     }
 
     img {
@@ -148,6 +152,80 @@ body {
 
     span {
       color: $primary-purple;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    gap: 2.5rem;
+    &__input {
+      &-element {
+        label {
+          font-size: calc($primary-size / 2);
+        }
+
+        span {
+          font-size: calc($primary-size / 2);
+        }
+
+        input {
+          font-size: calc($primary-size / 2);
+        }
+      }
+    }
+    &__button {
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 80%;
+      }
+    }
+
+    &__output {
+      &-field {
+        p {
+          font-size: $primary-size * 2;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .container {
+    gap: 1rem;
+    padding: 2rem;
+    &__input {
+      &-element {
+        label {
+          font-size: calc($primary-size / 2.5);
+        }
+
+        span {
+          font-size: calc($primary-size / 2.5);
+        }
+
+        input {
+          font-size: calc($primary-size / 2.5);
+          padding: 1rem 0 1rem 1rem;
+        }
+      }
+    }
+    &__button {
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 75%;
+      }
+    }
+
+    &__output {
+      &-field {
+        p {
+          font-size: $primary-size * 1;
+        }
+      }
     }
   }
 }
