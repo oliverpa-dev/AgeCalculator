@@ -26,7 +26,10 @@ const incorrectMonthLogic = "Must be a valid month";
 const incorrectYearLogic = "Must be a valid year";
 
 // Dates variables
+let day = new Date().getDate();
+let month = new Date().getMonth();
 let year = new Date().getFullYear();
+console.log(day, month - 3, year);
 
 // When the input is empty
 const emptyInputText = (errMsg) => {
@@ -36,6 +39,21 @@ const emptyInputText = (errMsg) => {
   dayLabels.forEach((element) => {
     element.classList.add("error");
   });
+};
+
+// For tomorrow, fix the issue with calculations
+const calcAge = (dayV, monthV, yearV) => {
+  if (dayV <= day) {
+    dayOutput.innerHTML = day - dayV;
+  } else {
+    dayOutput.innerHTML = dayV - day;
+  }
+  if (monthV <= month) {
+    monthOutput.innerHTML = month - monthV;
+  } else {
+    monthOutput.innerHTML = monthV - month;
+  }
+  yearOutput.innerHTML = year - yearV;
 };
 
 // When the logic is correct;
@@ -54,6 +72,7 @@ const checkLogic = (dayV, monthV, yearV) => {
     dayLabels.forEach((element) => {
       element.classList.remove("error");
     });
+    calcAge(dayV, monthV, yearV);
   } else {
     if (dayV < 0 || dayV > 31) {
       daySpan.innerHTML = "Must be a valid day";
