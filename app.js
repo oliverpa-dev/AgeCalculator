@@ -30,8 +30,13 @@ let day = new Date().getDate();
 let month = new Date().getMonth();
 let year = new Date().getFullYear();
 
-// When the input is empty
+/**
+ * This function takes a string as a parameter
+ * If all conditions met, inject it into the DOM elements
+ * @param {string} errMsg
+ */
 const emptyInputText = (errMsg) => {
+  // if(!isNaN())
   daySpan.innerHTML = `${errMsg}`;
   monthSpan.innerHTML = `${errMsg}`;
   yearSpan.innerHTML = `${errMsg}`;
@@ -40,7 +45,13 @@ const emptyInputText = (errMsg) => {
   });
 };
 
-// For tomorrow, fix the issue with calculations
+/**
+ * This function takes three number param
+ * If conditions met, inject it into the DOM elements
+ * @param {number} dayV
+ * @param {number} monthV
+ * @param {number} yearV
+ */
 const calcAge = (dayV, monthV, yearV) => {
   if (dayV <= day) {
     dayOutput.innerHTML = day - dayV;
@@ -55,7 +66,16 @@ const calcAge = (dayV, monthV, yearV) => {
   yearOutput.innerHTML = year - yearV;
 };
 
-// When the logic is correct;
+/**
+ * This function takes three number params
+ * If conditions met, reset the innerHTML of the elements
+ * and remove the "error" class
+ * and run the calcAge function
+ * else display the error messages
+ * @param {*} dayV
+ * @param {*} monthV
+ * @param {*} yearV
+ */
 const checkLogic = (dayV, monthV, yearV) => {
   if (
     dayV <= 31 &&
@@ -97,8 +117,17 @@ const checkLogic = (dayV, monthV, yearV) => {
   }
 };
 
+/**
+ *This function takes three numb params and one string
+ If conditions met, run emptyInputText
+ else run checkLogic function
+ * @param {*} day
+ * @param {*} month
+ * @param {*} year
+ * @param {*} msg
+ */
 const inputCheck = (day, month, year, msg) => {
-  if (isNaN(day) && isNaN(month) && isNaN(year)) {
+  if (isNaN(day) || isNaN(month) || isNaN(year)) {
     emptyInputText(msg);
   } else {
     checkLogic(day, month, year);
